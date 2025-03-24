@@ -1,0 +1,33 @@
+name: "Create DigitalOcean Kubernetes Cluster"
+description: "GitHub Action to create a Kubernetes cluster on DigitalOcean using Python."
+author: "Chandan"
+
+inputs:
+  digitalocean_token:
+    description: "DigitalOcean API Token"
+    required: true
+  cluster_name:
+    description: "Name of the Kubernetes cluster"
+    required: true
+    default: "my-k8s-cluster"
+  region:
+    description: "DigitalOcean region"
+    required: true
+    default: "nyc3"
+  node_size:
+    description: "Size of Kubernetes nodes"
+    required: true
+    default: "s-2vcpu-4gb"
+  node_count:
+    description: "Number of nodes in the cluster"
+    required: true
+    default: "2"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "cloud"
+  color: "blue"
+
