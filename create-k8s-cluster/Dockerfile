@@ -2,9 +2,10 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY main.py requirements.txt ./
+# Copy the action files into the container
+COPY . /app
 
+# Install dependencies
 RUN pip install -r requirements.txt
 
-CMD ["python", "main.py"]
-
+CMD ["python", "/app/main.py"]
