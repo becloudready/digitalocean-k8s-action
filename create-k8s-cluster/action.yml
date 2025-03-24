@@ -1,6 +1,6 @@
 name: "Create DigitalOcean Kubernetes Cluster"
 description: "GitHub Action to create a Kubernetes cluster on DigitalOcean using Python."
-author: "Chandan"
+author: "becloudready"
 
 inputs:
   digitalocean_token:
