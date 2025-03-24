@@ -1,0 +1,20 @@
+name: Test DigitalOcean Kubernetes Action
+
+on:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  create-cluster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create DigitalOcean Kubernetes Cluster
+        uses: ./create-k8s-cluster  # Uses the custom action
+        with:
+          digitalocean_token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          cluster_name: "test-cluster"
+          region: "nyc3"
+          node_size: "s-2vcpu-4gb"
+          node_count: "2"
